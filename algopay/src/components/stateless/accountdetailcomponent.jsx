@@ -37,6 +37,8 @@ const AccountDetailComponent = props => {
         <div></div>
         <div>
           <h4>Account</h4>
+          <p>Phone: +33674747479</p>
+          <p>Public key</p>
           <span
             className="badge badge-secondary"
             data-toggle="tooltip"
@@ -47,11 +49,15 @@ const AccountDetailComponent = props => {
             }
             onClick={copyToClipboard}
           >
+            
             {props.address.substr(0, 4)}...
             {props.address.substr(-4, 4)}
           </span>
+          
         </div>
+        
         <div>
+          {/* delete dropdown button not possible to change button */}
           <button
             className="btn btn-secondary dropdown-toggle"
             type="button"

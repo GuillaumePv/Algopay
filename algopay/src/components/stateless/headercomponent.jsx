@@ -7,7 +7,7 @@ const Header = props => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Algorand React
+            Algopay
           </Link>
           <button
             className="navbar-toggler"
@@ -29,14 +29,19 @@ const Header = props => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/transaction">
-                  Transaction
+                  Send
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/contacts">
+                  Contacts
+                </Link>
+              </li>
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/multisig">
                   Multisig Transaction
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

@@ -1,0 +1,51 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 20;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: gray;
+    color: white
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+#data_table:focus {
+    background-color: gray;
+    color: white;
+}
+
+
+/* change color of button user page */
+
+#basic_user:hover {
+    background-color: red;
+    color: white;
+}
+
+#basic_user:active {
+    background-color: blue;
+    color: white;
+}
+
+button {
+    display: block;
+    margin: auto;
+}

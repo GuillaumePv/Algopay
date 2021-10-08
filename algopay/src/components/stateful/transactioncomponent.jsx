@@ -5,6 +5,7 @@ import AlgorandClient from "../../services/algorandsdk";
 import copy from "clipboard-copy";
 import SuggestedFeeComponent from "./suggestedfeecomponent";
 
+
 /**
  * This component is used to send online transaction and can save transaction to be signed offline using a account mnemonic given as a prop
  * @props mnemonic: string -> account mnemonic
@@ -22,7 +23,7 @@ export default class TransactionComponent extends React.Component {
     super(props);
     this.state = {
       addressTo: {
-        value: "",
+        value: this.props.public_key,
         isValid: true,
         message: "Please choose an address."
       },
@@ -33,6 +34,7 @@ export default class TransactionComponent extends React.Component {
     };
   }
 
+  
   copyToClipboard = () => {
     copy(this.state.txnId);
   };
@@ -310,7 +312,9 @@ export default class TransactionComponent extends React.Component {
             <div className="text-danger font-weight-bold">Error</div>
             <div className="text-secondary">
               <span className="font-weight-bold">message: </span>
-              <span>{this.state.errorMessage}</span>
+              {/* <span>{this.state.errorMessage}</span> */}
+              <span>You do not have enough money in your account !!!</span>
+              {console.log(this.state.errorMessage)}
             </div>
           </div>
         ) : null}
