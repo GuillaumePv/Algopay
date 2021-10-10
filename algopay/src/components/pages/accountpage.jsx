@@ -1,6 +1,6 @@
 import * as React from "react";
 import AccountComponent from "../stateful/accountcomponent";
-
+import Header from "../stateless/headercomponent";
 /**
  * This component contain account component
  *
@@ -31,12 +31,16 @@ class AccountPage extends React.Component {
   };
   render() {
     return (
-      <AccountComponent
+      <div>
+        <Header/>
+        <AccountComponent
         address={this.state.address}
         mnemonic={this.state.mnemonic}
         accountList={JSON.parse(this.state.accountList) || []}
         changeAccount={this.changeAccount}
       />
+      </div>
+      
     );
   }
 }
