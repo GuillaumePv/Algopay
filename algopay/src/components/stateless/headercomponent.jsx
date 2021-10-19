@@ -1,7 +1,20 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db, logout } from "../../services/firebase";
 
 const Header = props => {
+  const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const history = useHistory();
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return history.replace("/login");
+
+  }, [user, loading]);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,7 +41,7 @@ const Header = props => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/transaction">
+                <Link className="nav-link" to={{ pathname: "/transaction", data: ["yo"] }}>
                   Send
                 </Link>
               </li>
@@ -36,6 +49,11 @@ const Header = props => {
                 <Link className="nav-link" to="/contacts">
                   Contacts
                 </Link>
+              </li>
+              <li>
+                <button className="dashboard__btn" onClick={logout}>
+                  Logout
+                </button>
               </li>
               {/* <li className="nav-item">
                 <Link className="nav-link" to="/multisig">

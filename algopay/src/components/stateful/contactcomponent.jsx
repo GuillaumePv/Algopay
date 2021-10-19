@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import AlgorandClient from "../../services/algorandsdk";
-import firebase from "../../services/firebase";
+import {app} from "../../services/firebase";
 import TableScrollbar from 'react-table-scrollbar';
 import './table.css'
 
@@ -9,7 +9,7 @@ export const ContactComponent = () => {
     const [users, setUsers] = useState();
 
     const fetchUsers = async () => {
-        const res = firebase.firestore().collection('users');
+        const res = app.firestore().collection('users');
         const data = await res.get();
         let dataUser = []
         console.log(data.docs.values); // we need to obtain json data
