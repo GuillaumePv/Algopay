@@ -45,15 +45,15 @@ const Header = props => {
                   Send
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/contacts">
                   Contacts
                 </Link>
-              </li>
-              <li>
-                <button className="dashboard__btn" onClick={logout}>
+              </li> */}
+              <li className="nav-item">
+                <Link className="dashboard__btn nav-link" onClick={logout}>
                   Logout
-                </button>
+                </Link>
               </li>
               {/* <li className="nav-item">
                 <Link className="nav-link" to="/multisig">

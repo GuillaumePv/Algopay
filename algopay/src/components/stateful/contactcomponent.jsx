@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import AlgorandClient from "../../services/algorandsdk";
 import {app} from "../../services/firebase";
 import TableScrollbar from 'react-table-scrollbar';
 import './table.css'

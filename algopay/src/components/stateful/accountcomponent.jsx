@@ -15,7 +15,6 @@ import AlgorandClient from "../../services/algorandsdk";
  * @state transactions: list of transaction -> store the list of transactions
  * @state transactionLoaded: boolean -> true when transaction is loaded
  *
- * @author [Mitrasish Mukherjee](https://github.com/mmitrasish)
  */
 class AccountComponent extends React.Component {
   constructor(props) {
@@ -103,6 +102,14 @@ class AccountComponent extends React.Component {
     return (
       <div className="container-fluid">
         <div className="row">
+        <AccountDetailComponent
+              balance={this.state.balance}
+              address={this.props.address}
+              mnemonic={this.props.mnemonic}
+              accountList={this.props.accountList}
+              changeAccount={this.changeAccount}
+            />
+          {/* mettre si j'arrive à debug recent transaction
           <div className="col-md-5 p-3">
             <AccountDetailComponent
               balance={this.state.balance}
@@ -111,13 +118,13 @@ class AccountComponent extends React.Component {
               accountList={this.props.accountList}
               changeAccount={this.changeAccount}
             />
-          </div>
-          <div className="col-md-7 p-3">
+          </div> */}
+          {/* <div className="col-md-7 p-3">
             <AccountTransactionComponent
               transactions={this.state.transactions}
               transactionLoaded={this.state.transactionLoaded}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     );

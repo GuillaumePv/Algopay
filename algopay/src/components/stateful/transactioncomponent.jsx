@@ -1,23 +1,16 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import algosdk from "algosdk";
 import $ from "jquery";
 import AlgorandClient from "../../services/algorandsdk";
 import copy from "clipboard-copy";
 import SuggestedFeeComponent from "./suggestedfeecomponent";
+import Header from "../stateless/headercomponent";
+import {app} from "../../services/firebase";
+import TableScrollbar from 'react-table-scrollbar';
+import './table.css'
 
 
-/**
- * This component is used to send online transaction and can save transaction to be signed offline using a account mnemonic given as a prop
- * @props mnemonic: string -> account mnemonic
- *
- * @state addressTo: {value: string, isValid: boolean, message: string} -> store address to send payment
- * @state amount: number -> store the amount to send
- * @state note: string -> store the note
- * @state txnId: string -> store transaction id after the transaction is complete
- * @state errorMessage: string -> store error message if there is any error during transaction
- *
- * @author [Mitrasish Mukherjee](https://github.com/mmitrasish)
- */
 export default class TransactionComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -211,7 +204,6 @@ export default class TransactionComponent extends React.Component {
     document.body.appendChild(element); // Required for this to work in FireFox
     element.click();
   };
-
   render() {
     return (
       <div>
@@ -282,6 +274,7 @@ export default class TransactionComponent extends React.Component {
               Sign Offline
             </button>
           </div>
+          
         </div>
         {this.state.txnId !== "" ? (
           <div className="rounded-lg shadow border bg-light p-4 mt-3">

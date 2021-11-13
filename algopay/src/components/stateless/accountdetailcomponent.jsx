@@ -128,7 +128,12 @@ const AccountDetailComponent = props => {
           style={{ height: 80, width: 80 }}
         />
         <h2 className="mt-4">{props.balance} ALGOS</h2>
+        
       </div>
+      <div className="mt-5 text-left px-3">
+      <h4>See my recent transactions: <a href={"https://goalseeker.purestake.io/algorand/testnet/account/"+props.address}>click here</a></h4>
+      </div>
+      
       <div className="mt-5 text-left px-3">
         <div className="d-flex justify-content-between">
           <h4>Mnemonic</h4>
