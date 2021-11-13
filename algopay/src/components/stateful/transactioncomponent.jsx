@@ -16,10 +16,12 @@ export default class TransactionComponent extends React.Component {
     super(props);
     this.state = {
       addressTo: {
-        value: this.props.public_key,
+        value: this.props.adressSender,
+        // value: this.props.public_key,
         isValid: true,
         message: "Please choose an address."
       },
+      adresSend: "test",
       amount: "",
       note: "",
       txnId: "",
@@ -224,7 +226,8 @@ export default class TransactionComponent extends React.Component {
               }
               id="addressTo"
               aria-describedby="adressToHelp"
-              placeholder="Enter address"
+              placeholder="Enter adress"
+              // value={this.props.adressSender}
               value={this.state.addressTo.value}
               onChange={this.loadAddressTo}
             />
@@ -267,13 +270,14 @@ export default class TransactionComponent extends React.Component {
             >
               Send
             </button>
+            {/* not necessary for us
             <button
               type="button"
               className="btn btn-dark px-4 mt-2"
               onClick={this.signTransactionOffline}
             >
               Sign Offline
-            </button>
+            </button> */}
           </div>
           
         </div>

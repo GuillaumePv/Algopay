@@ -15,7 +15,7 @@ import './table.css'
  * @author [Mitrasish Mukherjee](https://github.com/mmitrasish)
  */
 
-
+var valueAdressSender = "";
  class TransactionPage extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +38,7 @@ import './table.css'
         <div className="container-fluid row">
       <div className="col-md-6 d-flex justify-content-center">
         <div style={{ marginTop: "2em" }} className="col-md-8">
-          <TransactionComponent mnemonic={localStorage.getItem("mnemonic")} />
+          <TransactionComponent mnemonic={localStorage.getItem("mnemonic")} adressSender={valueAdressSender}/>
         </div>
       </div>
       <div className="col-md-6 d-flex justify-content-center">
@@ -80,6 +80,10 @@ function PhoneTab(){
         fetchUsers();
     }, [])
 
+    const onClick = async (adress) => {
+      window.location.reload(false);
+      // alert(adress);
+  }
   return(
     <div
                 style={{ padding: "4em" }}
@@ -91,7 +95,6 @@ function PhoneTab(){
                     className="rounded-lg shadow border bg-light p-4"
                 >
                     <h3>List of contacts</h3>
-                    <p>create liste of contacts firebase</p>
                     <TableScrollbar rows={7}>
                         <table >
                             <thead>
@@ -110,10 +113,10 @@ function PhoneTab(){
                                         return (
 
 
-                                            <tr key={user.name} onClick={() => alert(user.public_key)}>
+                                            <tr key={user.name} onClick={valueAdressSender = user.public_key }>
                                                 <td>{user.name}</td>
                                                 <td>{user.phone}</td>
-                                                {/* <td>{user.public_key}</td> */}
+                                                {/* <td>{user.public_key}</td> user.public_key*/}
                                                 {/* <td><a href={email_club_link}>{user.email_club}</a></td>
                                                 <td><a href={email_athlete_link}>{user.email_athlete}</a></td>
                                                 <td><button id="basic_user" onClick={modifClick}><IconEdit /></button></td>
