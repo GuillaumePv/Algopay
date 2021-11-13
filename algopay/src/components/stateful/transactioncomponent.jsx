@@ -255,9 +255,10 @@ export default class TransactionComponent extends React.Component {
             />
           </div>
 
+          {/* essayer de faire fonctionner sinon tanpis
           <div className="form-group">
             <SuggestedFeeComponent />
-          </div>
+          </div> */}
           <div className="d-flex justify-content-around">
             <button
               type="button"
