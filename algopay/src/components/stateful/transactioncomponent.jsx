@@ -117,7 +117,7 @@ export default class TransactionComponent extends React.Component {
         from: recoveredAccount.addr,
         to: this.state.addressTo.value,
         fee: params.fee,
-        amount: Number.parseInt(this.state.amount),
+        amount: Number.parseInt(this.state.amount)*10e5,
         firstRound: params.lastRound,
         lastRound: endRound,
         genesisID: params.genesisID,
@@ -182,7 +182,7 @@ export default class TransactionComponent extends React.Component {
           from: recoveredAccount.addr,
           to: this.state.addressTo.value,
           fee: params.fee,
-          amount: Number.parseInt(this.state.amount),
+          amount: Number.parseInt(this.state.amount)*10e6,
           firstRound: params.lastRound,
           lastRound: endRound,
           genesisID: params.genesisID,
@@ -227,8 +227,8 @@ export default class TransactionComponent extends React.Component {
               id="addressTo"
               aria-describedby="adressToHelp"
               placeholder="Enter adress"
-              // value={this.props.adressSender}
-              value={this.state.addressTo.value}
+              value={this.props.adressSender}
+              //value={this.state.addressTo.value}
               onChange={this.loadAddressTo}
             />
             <div className="invalid-feedback">
@@ -241,7 +241,7 @@ export default class TransactionComponent extends React.Component {
               type="number"
               className="form-control"
               id="amount"
-              placeholder="0 (in microAlgos)"
+              placeholder="0 (in algos)"
               value={this.state.amount}
               onChange={this.loadAmount}
             />
